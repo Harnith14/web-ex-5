@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PixelCraft | Photography Editing Services</title>
+
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --dark: #111827;
+            --light: #f8fafc;
+            --text: #374151;
+            --card: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #a78bfa;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background:
+                linear-gradient(rgba(17,24,39,.8), rgba(17,24,39,.8)),
+                url("https://images.unsplash.com/photo-1452780212940-6f5c0d14d848")
+                center/cover;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 72px);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 28px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #6d28d9;
+        }
+
+        /* Common Section */
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            color: var(--dark);
+        }
+
+        .section-title p {
+            margin-top: 8px;
+        }
+
+        /* Services */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            transition: .3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,.15);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: .4s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.04);
+        }
+
+        /* Contact */
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Pixel<span>Craft</span></div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Transform Your Photos</h1>
+
+                <p>
+                    Professional photography editing services
+                    that turn your moments into stunning visuals.
+                </p>
+
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services">
+
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Creative and professional photo editing solutions</p>
+            </div>
+
+            <div class="services">
+
+                <article class="service-card">
+                    <div class="icon">✨</div>
+                    <h3>Photo Retouching</h3>
+                    <p>
+                        Enhance portraits by improving lighting,
+                        skin tones and overall appearance.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <div class="icon">🖼️</div>
+                    <h3>Background Removal</h3>
+                    <p>
+                        Professionally remove and replace unwanted
+                        backgrounds from photographs.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <div class="icon">🎨</div>
+                    <h3>Color Correction</h3>
+                    <p>
+                        Balance colors, brightness and contrast
+                        to create visually appealing photographs.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <div class="icon">📷</div>
+                    <h3>Photo Restoration</h3>
+                    <p>
+                        Restore old photographs and improve their
+                        overall quality.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="gallery">
+
+            <div class="section-title">
+                <h2>Our Gallery</h2>
+                <p>Examples of creative photography</p>
+            </div>
+
+            <div class="gallery">
+                <img src="nature.jpg"
+                     alt="Nature photography">
+
+                <img src="por.jpg"
+                     alt="Portrait photography">
+
+                <img src="landscape.jpg"
+                     alt="Landscape photography">
+
+                <img src="camera.jpg"
+                     alt="Camera photography">
+            </div>
+
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+
+            <div class="section-title">
+                <h2>Request a Service</h2>
+                <p>Tell us about your photo editing requirements</p>
+            </div>
+
+            <div class="contact-box">
+
+                <form>
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name"
+                               placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email"
+                               placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Select Service</label>
+
+                        <select id="service">
+                            <option>Photo Retouching</option>
+                            <option>Background Removal</option>
+                            <option>Color Correction</option>
+                            <option>Photo Restoration</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message"
+                                  placeholder="Describe your requirements"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">
+                        Submit Request
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 PixelCraft Photography Editing Services</p>
+    </footer>
+
+</body>
+</html>
